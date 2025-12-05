@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>Play 3x3 Obby Online - Free Parkour & Math Obstacle Course</title>
+    <meta name="description" content="Play the official 3x3 Obby online for free! Master the grid, conquer challenging parkour levels, and sharpen your skills in this addicting browser-based obstacle course game.">
+    <meta name="keywords" content="3x3 Obby, Obby Game, Parkour Browser Game, Math Obby, Free Online Games, 3x3 Grid Game, Obstacle Course">
+    <meta name="author" content="3x3 Obby Online">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://3x3obbyonline.github.io/3x3obby.html">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://3x3obbyonline.github.io/">
+    <meta property="og:title" content="Play 3x3 Obby Online - Free Parkour Game">
+    <meta property="og:description" content="Jump, dodge, and solve your way through the 3x3 Obby. Play for free now without downloads!">
+    <meta property="og:image" content="https://www.3x3obby.com/wp-content/uploads/2025/09/Play-3x3-Obby-Online-For-Free-1.webp">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'obby-dark': '#0f172a',
+                        'obby-card': '#1e293b',
+                        'obby-accent': '#3b82f6',
+                        'obby-highlight': '#60a5fa',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
+        
+        .game-frame-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            background: #000;
+            border-radius: 0.75rem;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+        }
+        
+        .game-frame-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .wiki-link:hover {
+            text-decoration: underline;
+            color: #60a5fa;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0f172a; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1e293b; 
+            border-radius: 5px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #3b82f6; 
+        }
+    </style>
+
+    <!-- SCHEMA.ORG JSON-LD FOR SEO EXPERTISE -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": ["VideoGame", "WebApplication"],
+          "name": "3x3 Obby",
+          "url": "https://3x3obbyonline.github.io/3x3obby.html",
+          "image": "https://www.3x3obby.com/wp-content/uploads/2025/09/Play-3x3-Obby-Online-For-Free-1.webp",
+          "description": "3x3 Obby is a fast-paced browser platformer where players navigate a grid-based obstacle course. Test your reflexes and logic in this free-to-play online game.",
+          "genre": ["Platformer", "Obstacle Course", "Arcade"],
+          "applicationCategory": "Game",
+          "operatingSystem": "Web Browser",
+          "playMode": "SinglePlayer",
+          "inLanguage": "English",
+          "isAccessibleForFree": true,
+          "author": {
+            "@type": "Organization",
+            "name": "3x3 Obby Online"
+          },
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD",
+            "availability": "https://schema.org/InStock"
+          }
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Is 3x3 Obby free to play?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, 3x3 Obby is completely free to play directly in your web browser. No downloads or payments are required."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How do I play 3x3 Obby?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Use the arrow keys or WASD to move your character. The goal is to jump across platforms, avoid falling into the void, and reach the checkpoint at the end of each stage."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Does 3x3 Obby work on mobile?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, the game is optimized for HTML5 and works on most modern mobile devices and tablets with touch controls."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What is the 3x3 mechanic?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The 3x3 mechanic refers to the grid-style layout of certain platforms where players must choose the correct path or solve a pattern to proceed without falling."
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+</head>
+<body class="bg-obby-dark text-gray-200 antialiased font-sans">
+
+    <!-- Navigation -->
+    <nav class="bg-obby-card border-b border-gray-800 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center">
+                    <a href="#" class="flex-shrink-0">
+                        <img class="h-10 w-10 rounded-lg shadow-lg" src="https://www.3x3obby.com/wp-content/uploads/2025/09/3x3-Obby-150x150.webp" alt="3x3 Obby Logo">
+                    </a>
+                    <div class="hidden md:block">
+                        <div class="ml-10 flex items-baseline space-x-4">
+                            <a href="#play" class="bg-obby-accent text-white px-3 py-2 rounded-md text-sm font-medium hover:bg-blue-600 transition">Play Game</a>
+                            <a href="#wiki" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition">Wiki & Guide</a>
+                            <a href="#faq" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition">FAQ</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="hidden md:block">
+                    <a href="#play" class="text-white bg-green-600 hover:bg-green-700 px-4 py-2 rounded-full text-sm font-bold shadow-lg transition transform hover:scale-105">Play Now</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+
+        <!-- Header / Banner Section -->
+        <div class="text-center mb-8">
+            <h1 class="text-4xl md:text-6xl font-extrabold text-white mb-4 tracking-tight">
+                Play <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-green-400">3x3 Obby</span> Online
+            </h1>
+            <p class="mt-2 text-lg text-gray-400 max-w-2xl mx-auto">
+                The ultimate grid-based obstacle course. Test your precision, solve the patterns, and reach the finish line in this addictive HTML5 browser game.
+            </p>
+        </div>
+
+        <!-- Game Embed Section -->
+        <div id="play" class="mb-16">
+            <div class="game-frame-container ring-4 ring-obby-card">
+                <iframe src="https://3x3obbyonline.github.io/3x3obby.html" title="3x3 Obby Game" allowfullscreen></iframe>
+            </div>
+            <div class="mt-4 flex justify-between items-center bg-obby-card p-4 rounded-lg shadow-md">
+                <div class="flex items-center space-x-2">
+                    <span class="inline-block w-3 h-3 bg-green-500 rounded-full animate-pulse"></span>
+                    <span class="text-sm text-gray-300">Status: <strong>Online</strong> & Ready to Play</span>
+                </div>
+                <button onclick="document.querySelector('iframe').requestFullscreen()" class="text-sm text-blue-400 hover:text-blue-300 font-semibold flex items-center">
+                    <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"></path></svg>
+                    Fullscreen
+                </button>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            
+            <!-- Left Column: Content & Wiki -->
+            <div class="lg:col-span-2 space-y-12">
+                
+                <!-- Introduction -->
+                <section class="prose prose-invert max-w-none">
+                    <h2 class="text-3xl font-bold text-white mb-4 border-l-4 border-obby-accent pl-4">About 3x3 Obby</h2>
+                    <p class="text-gray-300 leading-relaxed">
+                        <strong>3x3 Obby</strong> is a wildly popular obstacle course platformer that challenges players to navigate through a series of increasingly difficult levels. Unlike traditional parkour games, 3x3 Obby incorporates unique grid mechanics where precision jumping is key. Whether you are a speedrunner looking to set a new record or a casual gamer wanting to pass the time, this game offers endless replayability.
+                    </p>
+                    <div class="my-6">
+                        <img src="https://www.3x3obby.com/wp-content/uploads/2025/09/Play-3x3-Obby-Online-For-Free-1.webp" alt="3x3 Obby Gameplay Banner" class="rounded-xl shadow-2xl w-full object-cover h-64 border border-gray-700">
+                    </div>
+                </section>
+
+                <!-- Wiki Section -->
+                <section id="wiki" class="bg-obby-card rounded-xl p-8 shadow-xl border border-gray-800">
+                    <div class="flex items-center mb-6">
+                        <svg class="w-8 h-8 text-yellow-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                        <h2 class="text-2xl font-bold text-white">3x3 Obby Wiki & Guide</h2>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Controls -->
+                        <div class="bg-obby-dark p-5 rounded-lg border border-gray-700">
+                            <h3 class="text-lg font-bold text-obby-highlight mb-2">🎮 Controls</h3>
+                            <ul class="space-y-2 text-sm text-gray-400">
+                                <li class="flex justify-between"><span>Move Forward</span> <kbd class="bg-gray-700 px-2 py-1 rounded text-white">W</kbd></li>
+                                <li class="flex justify-between"><span>Move Left</span> <kbd class="bg-gray-700 px-2 py-1 rounded text-white">A</kbd></li>
+                                <li class="flex justify-between"><span>Move Backward</span> <kbd class="bg-gray-700 px-2 py-1 rounded text-white">S</kbd></li>
+                                <li class="flex justify-between"><span>Move Right</span> <kbd class="bg-gray-700 px-2 py-1 rounded text-white">D</kbd></li>
+                                <li class="flex justify-between"><span>Jump</span> <kbd class="bg-gray-700 px-2 py-1 rounded text-white">Space</kbd></li>
+                            </ul>
+                        </div>
+
+                        <!-- Mechanics -->
+                        <div class="bg-obby-dark p-5 rounded-lg border border-gray-700">
+                            <h3 class="text-lg font-bold text-obby-highlight mb-2">⚙️ Core Mechanics</h3>
+                            <ul class="space-y-2 text-sm text-gray-400 list-disc list-inside">
+                                <li><strong>Checkpoint System:</strong> Touch flags to save progress.</li>
+                                <li><strong>Grid Platforms:</strong> 3x3 grids that may disappear or rotate.</li>
+                                <li><strong>Void Zone:</strong> Falling off the map resets you to the last flag.</li>
+                                <li><strong>Speed Run:</strong> Timer counts up; complete fast for medals.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="mt-8">
+                        <h3 class="text-xl font-bold text-white mb-4">Level Strategies</h3>
+                        <div class="space-y-4">
+                            <div class="bg-gray-800/50 p-4 rounded-lg hover:bg-gray-800 transition cursor-default">
+                                <h4 class="text-blue-400 font-bold">The Starter Plains</h4>
+                                <p class="text-sm text-gray-400 mt-1">Focus on basic jumps. The gaps between the 3x3 platforms are standard width. Don't rush; timing is forgiving here.</p>
+                            </div>
+                            <div class="bg-gray-800/50 p-4 rounded-lg hover:bg-gray-800 transition cursor-default">
+                                <h4 class="text-purple-400 font-bold">The Rotating Gears</h4>
+                                <p class="text-sm text-gray-400 mt-1">Wait for the gears to align with the grid. Jump slightly earlier than you think to account for rotation speed.</p>
+                            </div>
+                            <div class="bg-gray-800/50 p-4 rounded-lg hover:bg-gray-800 transition cursor-default">
+                                <h4 class="text-red-400 font-bold">Lava Grid</h4>
+                                <p class="text-sm text-gray-400 mt-1">Red platforms are fake! Memorize the path shown at the start of the level or follow the slightly darker tiles.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Right Column: Sidebar & FAQ -->
+            <div class="space-y-8">
+                
+                <!-- Quick Info Card -->
+                <div class="bg-obby-card p-6 rounded-xl border border-gray-800 shadow-lg">
+                    <h3 class="text-xl font-bold text-white mb-4">Game Details</h3>
+                    <div class="space-y-3 text-sm">
+                        <div class="flex justify-between border-b border-gray-700 pb-2">
+                            <span class="text-gray-400">Genre</span>
+                            <span class="text-white">Platformer / Obby</span>
+                        </div>
+                        <div class="flex justify-between border-b border-gray-700 pb-2">
+                            <span class="text-gray-400">Platform</span>
+                            <span class="text-white">Browser (HTML5)</span>
+                        </div>
+                        <div class="flex justify-between border-b border-gray-700 pb-2">
+                            <span class="text-gray-400">Release</span>
+                            <span class="text-white">2025</span>
+                        </div>
+                        <div class="flex justify-between pb-2">
+                            <span class="text-gray-400">Rating</span>
+                            <span class="text-yellow-400">★★★★★</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Section -->
+                <section id="faq">
+                    <h3 class="text-2xl font-bold text-white mb-6">Frequently Asked Questions</h3>
+                    <div class="space-y-4">
+                        <!-- FAQ Item 1 -->
+                        <details class="group bg-obby-card rounded-lg border border-gray-700 open:border-obby-accent transition-all duration-300">
+                            <summary class="flex justify-between items-center cursor-pointer p-4">
+                                <span class="font-semibold text-gray-200 group-hover:text-white">How do I save my progress?</span>
+                                <span class="transition group-open:rotate-180">
+                                    <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+                                </span>
+                            </summary>
+                            <div class="text-gray-400 mt-0 px-4 pb-4">
+                                Progress is saved automatically in your browser's local storage. As long as you don't clear your cache, you can return to the last checkpoint you reached.
+                            </div>
+                        </details>
+
+                        <!-- FAQ Item 2 -->
+                        <details class="group bg-obby-card rounded-lg border border-gray-700 open:border-obby-accent transition-all duration-300">
+                            <summary class="flex justify-between items-center cursor-pointer p-4">
+                                <span class="font-semibold text-gray-200 group-hover:text-white">Is 3x3 Obby difficult?</span>
+                                <span class="transition group-open:rotate-180">
+                                    <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+                                </span>
+                            </summary>
+                            <div class="text-gray-400 mt-0 px-4 pb-4">
+                                It starts easy! The first world introduces you to the mechanics. However, later levels (World 2 and 3) require precise timing and quick reflexes, making it a fun challenge for skilled players.
+                            </div>
+                        </details>
+
+                        <!-- FAQ Item 3 -->
+                        <details class="group bg-obby-card rounded-lg border border-gray-700 open:border-obby-accent transition-all duration-300">
+                            <summary class="flex justify-between items-center cursor-pointer p-4">
+                                <span class="font-semibold text-gray-200 group-hover:text-white">Why is the screen black?</span>
+                                <span class="transition group-open:rotate-180">
+                                    <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+                                </span>
+                            </summary>
+                            <div class="text-gray-400 mt-0 px-4 pb-4">
+                                If the game doesn't load, check your internet connection or try disabling ad blockers, as they sometimes interfere with HTML5 game scripts. Refreshing the page usually solves the issue.
+                            </div>
+                        </details>
+                    </div>
+                </section>
+                
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-obby-card border-t border-gray-800 mt-12 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center">
+            <div class="mb-4 md:mb-0">
+                <span class="text-2xl font-bold text-white tracking-tight">3x3 Obby</span>
+                <p class="text-sm text-gray-500 mt-1">© 2025 3x3 Obby Online. All rights reserved.</p>
+            </div>
+            <div class="flex space-x-6">
+                <a href="#" class="text-gray-400 hover:text-white transition">Privacy Policy</a>
+                <a href="#" class="text-gray-400 hover:text-white transition">Terms of Service</a>
+                <a href="#" class="text-gray-400 hover:text-white transition">Contact</a>
+            </div>
+        </div>
+        <div class="text-center mt-8 text-xs text-gray-600">
+            Game hosted via GitHub Pages. Not affiliated with Roblox Corporation.
+        </div>
+    </footer>
+
+</body>
+</html>
